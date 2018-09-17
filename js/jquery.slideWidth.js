@@ -35,11 +35,11 @@ try {
 					var originalCallback = callback,
 						$children = this.children();
 
-					$children.each(function(index, element) {
+					$children.show(0).each(function(index, element) {
 						var $element = $(element);
 						
 						$element.width($element.width() || 0);
-					});
+					}).css('display', '');
 					
 					callback = function() {
 						$children.width('');
