@@ -32,15 +32,24 @@ try {
 				slideWidthToggle : genFx('toggle')
 			}, function(name, value) {
 				$.fn[name] = function(speed, easing, callback) {
-					var originalCallback = callback,
-						$children = this.children();
-
-					$children.show(0).each(function(index, element) {
-						var $element = $(element);
-						
-						$element.width($element.width() || 0);
-					}).css('display', '');
+					var originalCallback = callback;
 					
+					this.each(function(index, element) {
+						var $element = $(element),
+							$children = $element.children(),
+							display = element.style.display;
+						
+						$element.show(0);
+
+						$children.each(function(index, element) {
+							var $element = $(element);
+
+							$element.width($element.width() || 0);
+						});
+
+						$element.css('display', display);
+					});
+
 					callback = function() {
 						$children.width('');
 
