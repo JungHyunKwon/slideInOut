@@ -3,5 +3,5 @@
 
 ## 함수명
 - slideIn <http://api.jquery.com/slidedown/>
-- slideOut <http://api.jquery.com/slidedown/>
-- slideWidthToggle <http://api.jquery.com/slidedown/>
+- slideOut <http://api.jquery.com/slideup/>
+- slideWidthToggle <http://api.jquery.com/slidetoggle/>
