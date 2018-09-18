@@ -32,9 +32,19 @@ try {
 				slideWidthToggle : genFx('toggle')
 			}, function(name, value) {
 				$.fn[name] = function(speed, easing, callback) {
-					var originalCallback = callback;
-					
-					this.each(function(index, element) {
+					var originalCallback = callback,
+						$children = this.children();
+
+					callback = function() {
+						$children.width('');
+
+						//함수일때
+						if(typeof originalCallback === 'function') {
+							originalCallback();
+						}
+					};
+
+					return this.each(function(index, element) {
 						var $element = $(element),
 							$children = $element.children(),
 							display = element.style.display;
@@ -48,18 +58,7 @@ try {
 						});
 
 						$element.css('display', display);
-					});
-
-					callback = function() {
-						$children.width('');
-
-						//함수일때
-						if(typeof originalCallback === 'function') {
-							originalCallback();
-						}
-					};
-
-					return this.animate(value, speed, easing, callback);
+					}).animate(value, speed, easing, callback);
 				};
 			});
 		}
