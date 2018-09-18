@@ -32,17 +32,17 @@ try {
 				slideWidthToggle : genFx('toggle')
 			}, function(name, value) {
 				$.fn[name] = function(speed, easing, callback) {
-					var originalCallback = callback,
-						$children = this.children();
+					var originalCallback = callback;
 
-					$children.each(function(index, element) {
+					this.children().each(function(index, element) {
 						var $element = $(element);
 
 						$element.width($element.width() || 0);
 					});
 
 					callback = function() {
-						$children.width('');
+						//초기화
+						$(this).children().width('');
 
 						//함수일때
 						if(typeof originalCallback === 'function') {
