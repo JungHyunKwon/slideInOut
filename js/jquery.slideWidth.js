@@ -32,6 +32,24 @@ try {
 				slideWidthToggle : genFx('toggle')
 			}, function(name, value) {
 				$.fn[name] = function(speed, easing, callback) {
+					var originalCallback = callback,
+						$children = this.children();
+
+					$children.each(function(index, element) {
+						var $element = $(element);
+
+						$element.width($element.width() || 0);
+					});
+
+					callback = function() {
+						$children.width('');
+
+						//함수일때
+						if(typeof originalCallback === 'function') {
+							originalCallback.call(this);
+						}
+					};
+
 					return this.animate(value, speed, easing, callback);
 				};
 			});
