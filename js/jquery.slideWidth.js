@@ -24,7 +24,7 @@ try {
 
 		//제이쿼리가 함수일때
 		if(typeof $ === 'function') {
-			var property = ['width', 'marginRight', 'marginLeft', 'paddingRight', 'paddingLeft', 'borderRightWidth', 'borderLeftWidth'];
+			var property = ['width', 'marginRight', 'marginLeft', 'paddingRight', 'paddingLeft'];
 
 			$.each({
 				slideIn : genFx('show'),
@@ -32,33 +32,7 @@ try {
 				slideWidthToggle : genFx('toggle')
 			}, function(name, value) {
 				$.fn[name] = function(speed, easing, callback) {
-					var originalCallback = callback,
-						$children = this.children();
-
-					callback = function() {
-						$children.width('');
-
-						//함수일때
-						if(typeof originalCallback === 'function') {
-							originalCallback();
-						}
-					};
-
-					return this.each(function(index, element) {
-						var $element = $(element),
-							$children = $element.children(),
-							display = element.style.display;
-						
-						$element.show(0);
-
-						$children.each(function(index, element) {
-							var $element = $(element);
-
-							$element.width($element.width() || 0);
-						});
-
-						$element.css('display', display);
-					}).animate(value, speed, easing, callback);
+					return this.animate(value, speed, easing, callback);
 				};
 			});
 		}
