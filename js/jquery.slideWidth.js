@@ -7,7 +7,7 @@ try {
 		'use strict';
 
 		/**
-		 * @name 함수생성
+		 * @name 함수 생성
 		 * @since 2018-09-18
 		 * @param {string} type
 		 * @return {object}
@@ -22,7 +22,7 @@ try {
 			return result;
 		}
 
-		//제이쿼리가 함수일때
+		//제이쿼리가 함수일 때
 		if(typeof $ === 'function') {
 			var property = ['width', 'marginRight', 'marginLeft', 'paddingRight', 'paddingLeft'];
 
@@ -44,7 +44,7 @@ try {
 						//초기화
 						$(this).children().width('');
 
-						//함수일때
+						//함수일 때
 						if(typeof originalCallback === 'function') {
 							originalCallback.call(this);
 						}
