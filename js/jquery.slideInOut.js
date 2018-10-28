@@ -29,7 +29,7 @@ try {
 			$.each({
 				slideIn : genFx('show'),
 				slideOut : genFx('hide'),
-				slideWidthToggle : genFx('toggle')
+				slideInOut : genFx('toggle')
 			}, function(name, value) {
 				$.fn[name] = function(speed, easing, callback) {
 					var originalCallback = callback;

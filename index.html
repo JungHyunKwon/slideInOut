@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
-	<title>slideWidth</title>
+	<title>slideInOut</title>
 	<link href="css/common.css" type="text/css" rel="stylesheet" />
 	<link href="css/style.css" type="text/css" rel="stylesheet" />
 	<style>
@@ -12,7 +12,7 @@
 		.outer .inner {position:absolute; top:0; right:0; bottom:0; left:0; margin:auto; width:200px; height:200px; background-color:#808080;}
 	</style>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="js/jquery.slideWidth.min.js"></script>
+	<script src="js/jquery.slideInOut.min.js"></script>
 	<script>
 		$(function() {
 			var $outer = $('.outer');
@@ -26,13 +26,13 @@
 			});
 
 			$('.toggle').on('click', function(event) {
-				$outer.slideWidthToggle();
+				$outer.slideInOut();
 			});
 		});
 	</script>
 </head>
 <body>
-<h1>slideWidth</h1>
+<h1>slideInOut</h1>
 <div class="outer">
 	<div class="inner">&nbsp;</div>
 </div>
