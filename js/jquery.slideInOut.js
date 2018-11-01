@@ -32,24 +32,6 @@ try {
 				slideInOut : genFx('toggle')
 			}, function(name, value) {
 				$.fn[name] = function(speed, easing, callback) {
-					var originalCallback = callback;
-
-					this.children().each(function(index, element) {
-						var $element = $(element);
-
-						$element.width($element.width() || 0);
-					});
-
-					callback = function() {
-						//초기화
-						$(this).children().width('');
-
-						//함수일 때
-						if(typeof originalCallback === 'function') {
-							originalCallback.call(this);
-						}
-					};
-
 					return this.animate(value, speed, easing, callback);
 				};
 			});
