@@ -36,7 +36,7 @@ try {
 				};
 			});
 		}
-	})(window.jQuery);
+	})(jQuery);
 }catch(e) {
 	console.error(e);
 }
