@@ -35,6 +35,8 @@ try {
 					return this.animate(value, speed, easing, callback);
 				};
 			});
+		}else{
+			throw '제이쿼리가 없습니다.';
 		}
 	})(window.jQuery);
 }catch(e) {
