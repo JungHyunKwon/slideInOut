@@ -29,7 +29,7 @@ try {
 			$.each({
 				slideLeft : genFx('hide'),
 				slideRight : genFx('show'),
-				slideToggle2 : genFx('toggle')
+				slideX : genFx('toggle')
 			}, function(name, value) {
 				$.fn[name] = function(speed, easing, callback) {
 					return this.animate(value, speed, easing, callback);
