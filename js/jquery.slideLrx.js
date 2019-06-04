@@ -8,7 +8,7 @@ try {
 	(function($) {
 		//제이쿼리가 함수일 때
 		if(typeof $ === 'function') {
-			var property = ['width', 'marginRight', 'marginLeft', 'paddingRight', 'paddingLeft'];
+			var _property = ['width', 'marginRight', 'marginLeft', 'paddingRight', 'paddingLeft'];
 
 			/**
 			 * @name 함수 생성
@@ -16,20 +16,20 @@ try {
 			 * @param {string} type
 			 * @return {object}
 			 */
-			function genFx(type) {
+			function _genFx(type) {
 				var result = {};
 
-				for(var i = 0, propertyLength = property.length; i < propertyLength; i++) {
-					result[property[i]] = type;
+				for(var i = 0, propertyLength = _property.length; i < propertyLength; i++) {
+					result[_property[i]] = type;
 				}
 
 				return result;
 			}
 
 			$.each({
-				slideLeft : genFx('hide'),
-				slideRight : genFx('show'),
-				slideX : genFx('toggle')
+				slideLeft : _genFx('hide'),
+				slideRight : _genFx('show'),
+				slideX : _genFx('toggle')
 			}, function(name, value) {
 				$.fn[name] = function(speed, easing, callback) {
 					return this.animate(value, speed, easing, callback);
