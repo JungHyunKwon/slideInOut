@@ -32,4 +32,4 @@
 			return this.animate(value, speed, easing, callback);
 		};
 	});
-})(jQuery);
+})(window.jQuery);
