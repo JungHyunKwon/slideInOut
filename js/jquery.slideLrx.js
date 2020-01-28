@@ -5,7 +5,7 @@
 (function($) {
 	'use strict';
 
-	var _property = ['width', 'marginRight', 'marginLeft', 'paddingRight', 'paddingLeft'];
+	var properties = ['width', 'marginRight', 'marginLeft', 'paddingRight', 'paddingLeft'];
 
 	/**
 	 * @name 함수 생성
@@ -13,23 +13,23 @@
 	 * @param {string} type
 	 * @return {object}
 	 */
-	function _genFx(type) {
+	function genFx(type) {
 		var result = {};
 
-		for(var i = 0, propertyLength = _property.length; i < propertyLength; i++) {
-			result[_property[i]] = type;
+		for(var i = 0, propertiesLength = properties.length; i < propertiesLength; i++) {
+			result[properties[i]] = type;
 		}
 
 		return result;
 	}
 
 	$.each({
-		slideLeft : _genFx('hide'),
-		slideRight : _genFx('show'),
-		slideX : _genFx('toggle')
-	}, function(name, value) {
-		$.fn[name] = function(speed, easing, callback) {
+		slideLeft : genFx('hide'),
+		slideRight : genFx('show'),
+		slideX : genFx('toggle')
+	}, function(key, value) {
+		$.fn[key] = function(speed, easing, callback) {
 			return this.animate(value, speed, easing, callback);
 		};
 	});
-})(window.jQuery);
+})(jQuery);
