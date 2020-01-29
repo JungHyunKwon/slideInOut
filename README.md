@@ -1,4 +1,4 @@
-# slideLrx v1.0.0
+# slideX v1.0.0
 가로축에 대한 슬라이드 함수인 slideLeft, slideRight, slideX를 추가하였습니다.
 
 ## 함수명
